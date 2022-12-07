@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/Admin.css">
+  <link rel="stylesheet" href="./fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.css">
+  <title>Document</title>
+</head>
+<body onload="renderProducts()">
+  <div class="main">
+    <!-- SIDEBAR:BEGIN -->
+    <div class="sidebar col-W-20">
+      <ul class="sidebar__nav">
+        <li>
+          <a href="#" class="sidebar__links">
+            <i class="fa-sharp fa-solid fa-boxes-packing sidebar__nav-icon"></i>
+            Quản lí sản phẩm
+          </a>
+
+        </li>
+
+        <li>
+          <a href="Admin_QLDonHang.html" class="sidebar__links">
+            <i class="fa-solid fa-cart-shopping sidebar__nav-icon"></i>
+            Quản lý đơn hàng
+          </a>
+        </li>
+
+        <li>
+          <a href="Admin_UserManagement.html" class="sidebar__links">
+            <i class="fa-solid fa-users sidebar__nav-icon"></i>
+            Quản lý người dùng
+          </a>
+        </li>
+
+        <li>
+          <a href="./Admin_Thongke.html" class="sidebar__links">
+            <i class="fa-solid fa-chart-column sidebar__nav-icon"></i>
+            Thống kê 
+          </a>
+        </li>
+
+        <li>
+          <a href="./index.html" class="sidebar__links">
+            <i class="fa-solid fa-power-off sidebar__nav-icon"></i>
+            Đăng xuất
+          </a>
+        </li>
+      </ul>
+
+    </div>
+
+    <!-- SIDEBAR:END -->
+    <!-- Container:Begin -->
+    <div class="container col-W-80">
+      <!-- container-HEADER -->
+      
+      <div class="header">
+            <h2>Quản lý sản phẩm</h2>
+              
+      </div>
+
+      <!-- container-content -->
+
+      <div class="content">
+        <div class="content__btn">
+          <a href="#" class="content__btn-addItem JS-btnAdd-OutModal" id="btn">Thêm sản phẩm</a>
+        </div>
+        <div class="content__Boxes"></div>
+      </div>
+
+    </div>
+    <!-- Container:END -->
+  </div>
+  <div class="modal JS-modal">
+      <div class="modal__container">
+        <header class="modal__container-header background-color-2260da">
+          <h1>Sản phẩm</h1>
+          <div class="close"><i class="fa-regular fa-circle-xmark close-icon JS-close-icon"></i></div>
+        </header>
+        <div class="modal__container-content">
+          <div class= "form">
+            <input type="text" class="modal__container-content-Products JS-formInput JS-InputNameProduct" placeholder="Tên sản phẩm" name="tên sản phẩm">
+            <p class="message-Error"></p>
+          </div>
+
+          <div class="form">
+            <input type="number" class="modal__container-content-Products JS-formInput JS-InputAmountProduct" placeholder="Số lượng sản phẩm" name="số lượng sản phẩm">
+            <p class="message-Error"></p>
+          </div>
+
+          <div class="form">
+            <select name="type" class="modal__container-content-Products js-select-typeProducts">
+              <option value="Aouke Watch">Aouke Watch</option>
+              <option value="Borman Watch">Borman Watch</option>
+              <option value="Lobinni Watch">Lobinni Watch</option>
+              <option value="Poniger Watch">Poniger Watch</option>
+              <option value="Teintop Watch">Teintop Watch</option>
+            </select>
+          </div>
+
+          <div class="form">
+            <input type="number" class="modal__container-content-Products JS-formInput JS-InputPriceProduct" placeholder="Giá Sản phẩm" name="giá Sản phẩm">
+            <p class="message-Error"></p>
+          </div>
+
+          <div class="form">
+            <input type="text" class="modal__container-content-Products JS-formInput JS-InputLinkImageProduct" placeholder="Link ảnh sản phẩm" name="link ảnh sản phẩm">
+            <p class="message-Error"></p>
+          </div>
+
+          <div class="form"><Button class="button btn-add JS-btnAdd-InModal modal__container-content-Products background-color-2260da" onclick="AddValuesToFrameProductInfo()">Thêm</Button></div>
+          <div class="form"><Button class="button btn-update JS-btnUpdate-InModal modal__container-content-Products background-color-2260da" onclick="ChangeProduct()">Sửa</Button></div>
+        </div>
+      </div>
+  </div>
+  <Script src="./JS/AddProduct.js"></Script>
+</body>
+</html>

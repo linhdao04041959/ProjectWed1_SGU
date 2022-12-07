@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./images/themify-icons-font/themify-icons/themify-icons.css">
+    <title>Document</title>
+    <!-- css -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* attribute dùng chung */
+        .col-35{
+            width: 35%;
+        }
+
+        .col-65{
+            width: 65%;
+        }
+
+        .font{
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+
+
+
+        .main{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://tse3.mm.bing.net/th?id=OIP.fpSjqa0NnJvxwq5YCd1-RgHaEo&pid=Api&P=0');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .main .form{
+            width: 340px;
+            background-color: rgba(255,255,255,.8);
+        }
+        
+
+        .header__form{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #333;
+            
+        }
+         
+        .header__form-title{
+            padding: 10px;
+            text-align: center;
+            margin-left: 70px;
+        }
+
+        .btn-close{
+            padding: 10px;
+            font-size: 20px;
+        }
+        
+        .btn-close:hover{
+            opacity: .5;
+            cursor: pointer;
+        }
+
+        .content__form{
+
+            padding: 20px;
+        }
+
+        .LoginFail{
+            background-color: #e04042;
+            padding: 3px;
+        }
+
+        .from-Enter{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+
+        }
+
+        .content__form-passWord{    
+            margin-top: 30px;
+        }
+
+        .content__form--Error{
+            color: #e04042;
+            font-weight: 600;
+        }
+
+
+        .btn{
+            margin-top: 30px;
+            text-align: center;
+            /* display: flex;
+            justify-content: center; */
+
+        }
+        .btn__loginAdmin{
+            background: #102453;
+            color: #e9f2f3;
+            padding: 10px;
+        }
+
+        .btn__loginAdmin:hover{
+            opacity: .7;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="form">
+            <div class="header__form">
+                <h1 class="header__form-title">Login Admin</h1>
+            </div>
+
+            <div class="content__form">
+                <div class="Message-LoginFail"></div>
+                <div class="content__form-userName from-Enter">
+                    <label for="" class="col-35 font">UserName:</label>
+                    <input type="text" oninput="ValidLoginAdmin()"  name ='userName Admin' class="user js-Input js-userAdmin col-65" placeholder="Enter userName Admin">
+                </div>
+                <div class="content__form--Error"></div>
+                <div class="content__form-passWord from-Enter">
+                    <label for="" class="col-35 font">PassWord:</label>
+                    <input type="password" oninput="ValidLoginAdmin()"  name ='passWord Admin' class="pass js-Input js-pass col-65" placeholder="Enter PassWord Admin">
+                </div>
+                <div class="content__form--Error"></div>
+                <div class="btn">
+                    <button class="btn__loginAdmin" onclick="ValidLoginAdmin();StatusLoginFail()">Login Admin</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let ValueUserNameAdmin = document.querySelector('.js-userAdmin');
+        let ValuePassWordAdmin = document.querySelector('.js-pass');
+        let ValueAllInput = document.querySelectorAll('.js-Input');
+        let ContainerElements = document.querySelector('.form');
+        let MessageLoginFail = document.querySelector('.Message-LoginFail');
+        
+        function ValidLoginAdmin() {
+            let arrListUserAdmin = localStorage.getItem('List-User')?JSON.parse(localStorage.getItem('List-User')):[];
+            for (let index = 0; index < arrListUserAdmin.length; index++) {
+                if (ValueAllInput[index].value === '') {
+                    ContainerElements.parentElement.querySelectorAll('.content__form--Error')[index].innerHTML = `<p><i class="ti-info-alt"></i> Bạn chưa nhập ${ValueAllInput[index].name}</p>`;
+                }
+                else {
+                    ContainerElements.parentElement.querySelectorAll('.content__form--Error')[index].innerHTML ='';
+                }
+            }
+        }
+
+        function StatusLoginFail(){
+            let arrListUserAdmin = localStorage.getItem('List-User')?JSON.parse(localStorage.getItem('List-User')):[];
+            for (let index = 0; index < arrListUserAdmin.length; index++) {
+                if(ValueAllInput[index].value !== '')
+                {
+                    if (ValueUserNameAdmin.value !== arrListUserAdmin[index].UserName 
+                    || ValuePassWordAdmin.value !== arrListUserAdmin[index].PassWord 
+                    ){
+                        MessageLoginFail.innerHTML = `<p class ="LoginFail"><i class="ti-info-alt"></i> Tài khoản hoặc mật khẩu không đúng!</p>` 
+                        ValueUserNameAdmin.value ='';
+                        ValuePassWordAdmin.value =''          
+                    }
+                    else  if((ValueUserNameAdmin.value === arrListUserAdmin[index].UserName 
+                    && ValuePassWordAdmin.value === arrListUserAdmin[index].PassWord)){
+                        if (arrListUserAdmin[index].Type ==='Admin') {
+                            MessageLoginFail.innerHTML=''
+                            alert("Đăng nhập admin thành công")
+                            window.location.href ='./Admin_QLSanPham.html'
+                            break;
+                        }else 
+                        MessageLoginFail.innerHTML = `<p class ="LoginFail"><i class="ti-info-alt"></i> Tài khoản hoặc mật khẩu không đúng!</p>` 
+                    }
+                }
+        }
+    }
+    </script>
+
+</body>
+</html>

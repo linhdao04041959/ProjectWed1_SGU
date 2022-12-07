@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/Admin.css">
+    <link rel="stylesheet" href="./CSS/user.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body onload="LoadInfoUser()">
+    <div class="main">
+        <!-- SIDEBAR:BEGIN -->
+        <div class="sidebar col-W-20">
+          <ul class="sidebar__nav">
+            <li>
+              <a href="#" class="sidebar__links">
+                <i class="fa-sharp fa-solid fa-boxes-packing sidebar__nav-icon"></i>
+                Quản lí sản phẩm
+              </a>
+    
+            </li>
+    
+            <li>
+              <a href="Admin_QLDonHang.html" class="sidebar__links">
+                <i class="fa-solid fa-cart-shopping sidebar__nav-icon"></i>
+                Quản lý đơn hàng
+              </a>
+            </li>
+    
+            <li>
+              <a href="#" class="sidebar__links">
+                <i class="fa-solid fa-users sidebar__nav-icon"></i>
+                Quản lý người dùng
+              </a>
+            </li>
+    
+            <li>
+              <a href="./Admin_Thongke.html" class="sidebar__links">
+                <i class="fa-solid fa-chart-column sidebar__nav-icon"></i>
+                Thống kê 
+              </a>
+            </li>
+    
+            <li>
+              <a href="./index.html" class="sidebar__links">
+                <i class="fa-solid fa-power-off sidebar__nav-icon"></i>
+                Đăng xuất
+              </a>
+            </li>
+          </ul>
+    
+        </div>
+
+        <div class="container col-W-80">
+          <!-- container-HEADER -->
+          
+          <div class="header">
+                <h2>Quản lý Người dùng</h2>
+          </div>
+    
+          <!-- container-content -->
+    
+          <div class="content">
+            <div class="content__box-info">
+              <div class="content__box-info-Users JS-content__box-info-Users"></div>
+            </div>
+          </div>
+
+    </div>
+    <script >
+      let formInfoAccount = document.querySelector('.JS-content__box-info-Users');
+      let IDUser = ``
+      let AccountName = ``
+      let PassWordUser = ``
+      let phoneNumber =``
+      let TypeAccount =``
+        function LoadInfoUser(){
+            let listUser = localStorage.getItem("List-User") ? JSON.parse(localStorage.getItem("List-User")) : [];
+            for (let index = 0; index < listUser.length; index++) {
+                IDUser+=`<li>${listUser[index].ID}</li>`;
+                AccountName +=`<li>${listUser[index].UserName}</li>`
+                PassWordUser +=`<li>${listUser[index].PassWord}</li>`
+                TypeAccount +=`<li>${listUser[index].Type}</li>`
+                phoneNumber +=`<li>${listUser[index].PhoneNumber}</li>`
+            }
+            formInfoAccount.innerHTML=
+            `
+                <ul>
+                    <li>ID</li>
+                    ${IDUser}
+                </ul>
+
+                <ul>
+                    <li>UserName</li>
+                    ${AccountName}
+                </ul>
+
+                <ul>
+                    <li>PassWord</li>
+                    ${PassWordUser}
+                </ul>
+
+                <ul>
+                    <li>Type Account</li>
+                    ${TypeAccount}
+                </ul>
+
+                <ul>
+                    <li>Phone Number</li>
+                    ${phoneNumber}
+                </ul>
+
+            `
+        }
+    </script>
+</body>
+</html>

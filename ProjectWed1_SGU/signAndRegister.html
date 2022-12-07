@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/Admin.css">
+    <link rel="stylesheet" href="./CSS/Account.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header-LoginAndRegister">
+        <div class="frame-LoginAndRegister JS-formLoginSuccess">
+            <a href="#" class="Login Link-Account" onclick="OpenModalLogin()">
+                Đăng nhập
+            </a>
+            |
+            <a href="#" class="Register Link-Account" onclick="OpenModalRegister()">
+                Đăng ký
+            </a>   
+        </div>
+    </div>
+
+    <div class="header-handlingStatusLogin"></div>
+
+    <!-- Login:Begin -->
+    <div class="modal-overlay">
+        <div class="modal-overlay__Login">
+            <div class="modal-overlay__Login-header">
+                <h1  style="margin-left:100px; padding: 10px;">Đăng nhập</h1>
+                <div class="close-Login"><i class="fa-regular fa-circle-xmark close-icon JS-close-icon-Login" onclick="CloseModalLogin()"></i></div>
+            </div>
+            <div class="modal-overlay__content">
+                <div class="div-Error"></div>
+                <form action="" class="form-Login">
+                    <div class="form-Login__Name">
+                        <label class="size-font col-35" for="userName">UserName:</label>
+                        <input type="text" name="userName" class="Name-Login JS-Name-Login size-Input JS-ValueLogin col-65" placeholder="Username" oninput="InputValidateAccount()">
+                    </div>
+                    <p style="margin-left: 120px;" class="message-Error js-messageErrorLogin js-messageErrorLoginUserName"></p>
+                    <div class="form-Login__Password">
+                        <label class="size-font col-35" for="passWord">PassWord:</label>
+                        <input type="password" name="passWord" class="Password-Login JS-Password-Login JS-ValueLogin size-Input col-65" placeholder="Password" oninput="InputValidateAccount()">
+                    </div>
+                    <p style="margin-left: 120px;" class="message-Error js-messageErrorLogin js-messageErrorLoginPass"></p>
+                </form>
+                <div class="Div-btnLogin"><button class="btn-login" onclick="ValidateAccount()">Đăng nhập</button></div>
+                <div class="Space">
+                    <div class="Space__ForgotAndLoginAdmin">
+                        <a href="" class="Forgot-Password Link-Account">
+                            Forgot Password?
+                        </a>
+                        <br>
+                        <a href="./formLoginAdminPage.html" class="Login-Admin Link-Account">
+                            Login Admin?
+                        </a>
+                        
+                    </div>
+                    
+                    <div class="Div-Register">
+                        Do not have an account?
+                        <a href="#" class="Div-Register__account Link-Account">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Login:End -->
+
+
+    <!-- Register:Begin -->
+    <div class="Modal-overlay">
+        <div class="Modal-overlay__Register">
+            <div class="Modal-overlay__Register-header">
+                <h1  style="margin-left:150px; padding: 10px;" >Đăng ký</h1>
+                <div class="close-Register"><i class="fa-regular fa-circle-xmark close-icon JS-close-icon-Register" onclick="CloseModalRegister()"></i></div>
+            </div>
+            <div class="Modal-overlay__content">
+                <form action="" class="form-Input">
+                    <div class="form-Register">
+                        <label class="size-font col-35" for="">Tên tài khoản:</label>
+                        <input type="text"  name="tên tài khoản" class="Name-Register JS-InputName JS-Input-Register  size-Input col-65" oninput=" availedFrameRegister();" placeholder="Tên tài khoản">
+                    </div>
+                    <div class="box-message">
+                        <p class="message-Error" style="margin-left: 150px;"></p>
+                    </div>
+                    <div class="form-Register">
+                        <label class="size-font col-35" for="passWord">Mật khẩu:</label>
+                        <input type="password"  name="mật khẩu" class="Password-Register JS-InputPass JS-Input-Register  size-Input col-65" oninput=" availedFrameRegister();" placeholder="Mật khẩu">
+                    </div>
+                    <div class="box-message">
+                        <p class="message-Error" style="margin-left: 150px;"></p>
+                    </div>
+                    <div class="form-Register">
+                        <label class="size-font col-35" for="">Nhập lại mật khẩu:</label>
+                        <input type="password"  name="lại mật khẩu" oninput="availedFrameRegister();" class="Name-Register JS-InputpassRepeat JS-Input-Register  size-Input col-65" placeholder="Nhập lại mật khẩu">
+                    </div>
+                    <div class="box-message">
+                        <p class="message-Error js-messageErrorNotSame" style="margin-left: 150px;"></p>
+                    </div>
+                    <div class="form-Register">
+                        <label class="size-font col-35" for="passWord">Phone:</label>
+                        <input type="number"  name="số điện thoại" class="Password-Register JS-Inputphone JS-Input-Register  size-Input col-65" oninput="availedFrameRegister()" placeholder="Nhập sđt">
+                    </div>
+                    <div class="box-message">
+                        <p class="message-Error js-messageError-Phone" style="margin-left: 150px;"></p>
+                    </div>
+                </form>
+                <div class="Div-btnRegister"><div class="btn-Register" onclick="submitAccount()">Đăng ký</div></div>
+            </div>
+        </div>
+    </div>
+    <!-- Register:End -->
+
+    <script src="./JS/AccountLogin.js"></script>
+    <script src="./JS/AccountRegister.js"></script>
+</body>
+</html>

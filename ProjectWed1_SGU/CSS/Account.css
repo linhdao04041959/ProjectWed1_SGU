@@ -1,0 +1,310 @@
+/* CSSs dùng chung */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.text-align{
+    text-align: center;
+}
+
+.Link-Account{
+    text-decoration: none;
+}
+
+.mg-10px{
+    margin: 10px;
+}
+
+.col-35{
+    width: 35%;
+}
+
+.col-65{
+    width: 65%;
+}
+
+/* đăng nhập:BEGIN */
+.modal-overlay{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.4);
+  }
+
+  .modal-overlay__Login{
+    width: 370px;
+    min-height: 200px;
+    background-color: #fff;
+    animation: modalLogin-fadeIn ease 1s 
+  }
+  
+  .modal-overlay__Login-header{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+    background-color: #2260da;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modal-overlay__Login-header h1{
+    margin-left: 50px;
+  }
+
+  .error-login{
+    padding: 5px;
+    background: #ffb7b2;
+  }
+
+  .success-Login{
+    border: 2px solid;
+  }
+
+  .Welcome-user{
+    font-weight: 800;
+  }
+
+  .success-Login p{
+    margin: 10px 0 ;
+  }
+
+  .Welcome-user .icon-user{
+    margin-right: 10px;
+  }
+
+  .logOut .logOut__name{
+    text-decoration: none;
+  }
+
+  .logOut .logOut__name:hover{
+    opacity: .5;
+  }
+
+  .modal-overlay.open-Login{
+    display: flex;
+  }
+
+
+  .modal-overlay__content{
+    padding: 10px;
+  }
+  
+  .form-Login__Name{
+    margin-top: 10px;
+  }
+  
+  .form-Login__Password{
+    margin-top: 25px;
+  }
+  
+  .form-Login__Name,.form-Login__Password{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+  }
+  
+  .Div-btnLogin{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+  }
+  
+  .btn-login{
+    padding: 12px 30px;
+    background-color: #2260da;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+  
+  }
+  
+  .btn-login:hover{
+    opacity: .6;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+.Space{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.Link-Account:hover{
+    opacity: .5;
+}
+
+@keyframes modalLogin-fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-432px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* đăng nhập:END */
+
+
+
+
+
+/* đăng ký:BEGIN */
+.Modal-overlay{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.4);
+  }
+
+
+  .Modal-overlay__Register{
+    width: 450px;
+    min-height: 200px;
+    background-color: #fff;
+    animation: ModalRegister-fadeIn ease 1s 
+  }
+  
+  .Modal-overlay__Register-header{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+    background-color: #2260da;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .Modal-overlay__Register-header h1{
+    margin-left: 50px;
+  }
+
+  .Modal-overlay.open-Register{
+    display: flex;
+  }
+
+
+  .Modal-overlay__content{
+    padding: 10px;
+  }
+  
+  .form-Register{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+  }
+  
+  .Div-btnRegister{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+  }
+  
+  .btn-Register{
+    padding: 12px 30px;
+    background-color: #2260da;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+  
+  }
+  
+  .btn-Register:hover{
+    opacity: .6;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+.Space{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Link-Account:hover{
+    opacity: .5;
+}
+
+@keyframes ModalRegister-fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-432px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* đăng ký:END */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container-Div{
+  display: flex;
+  justify-content: right;
+  margin-right: 50px;
+}

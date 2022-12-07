@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./CSS/Admin.css">
+        <link rel="stylesheet" href="./CSS/ThongKe.css">
+        <link rel="stylesheet" href="./fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.css">
+        <title>Document</title>
+      </head>
+      <body onload="loadThongKeDonHang()">
+        <div class="main">
+          <!-- SIDEBAR:BEGIN -->
+          <div class="sidebar col-W-20">
+            <ul class="sidebar__nav">
+              <li>
+                <a href="./Admin_QLSanPham.html" class="sidebar__links">
+                  <i class="fa-sharp fa-solid fa-boxes-packing sidebar__nav-icon"></i>
+                  Quản lí sản phẩm
+                </a>
+      
+              </li>
+      
+              <li>
+                <a href="Admin_QLDonHang.html" class="sidebar__links">
+                  <i class="fa-solid fa-cart-shopping sidebar__nav-icon"></i>
+                  Quản lý đơn hàng
+                </a>
+              </li>
+      
+              <li>
+                <a href="Admin_UserManagement.html" class="sidebar__links">
+                  <i class="fa-solid fa-users sidebar__nav-icon"></i>
+                  Quản lý người dùng
+                </a>
+              </li>
+      
+              <li>
+                <a href="#" class="sidebar__links">
+                  <i class="fa-solid fa-chart-column sidebar__nav-icon"></i>
+                  Thống kê  
+                </a>
+              </li>
+      
+              <li>
+                <a href="./index.html" class="sidebar__links">
+                  <i class="fa-solid fa-power-off sidebar__nav-icon"></i>
+                  Đăng xuất
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        <div class="container col-W-80">
+            <!-- container-HEADER -->
+            
+            <div class="header">
+                  <h2>Thống kê đơn hàng</h2>
+            </div>
+
+            <div class="content__container">
+
+                <div class="content__container-head">
+                    <div class="content__container-headLeft box-head col-half">
+                        <h3 class="title-h3">
+                            Đơn hàng
+                        </h3>
+                        <h3 class="title-h3 js-totalOrder">
+                            0
+                        </h3>
+                       <p class="descript">Cập nhật hôm nay</p>
+                    </div>
+
+                    <div class="content__container-headRight box-head col-half">
+                        <h3 class="title-h3">
+                            Doanh thu
+                        </h3>
+                        <h3 class="title-h3 js-totalOrderPrice">
+                            $0
+                        </h3>
+                       <p class="descript">Cập nhật hôm nay</p>
+                    </div>
+
+                </div>
+
+                <div class="content__container-SubCont">
+                    <ul class="content__container-SubContLeft">
+                        <li>
+                            Loại đồng hồ
+                        </li>
+
+                        <li>
+                            Aouke Watch 
+                        </li>
+
+                        <li>
+                            Borman Watch
+                        </li>
+
+                        <li>
+                            Lobinni Watch
+                        </li>
+
+                        <li>
+                            Poniger Watch
+                        </li>
+
+                        <li>
+                            Teintop Watch
+                        </li>
+
+                    </ul>
+                    
+                    <ul class="content__container-SubContRight"></ul>
+                    
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="./JS/index.js"></script>
+    <script>
+        let listOrder = localStorage.getItem('danhsachdonhang')? JSON.parse(localStorage.getItem('danhsachdonhang')):[]
+        let PriceWatches = document.querySelector('.content__container-SubContRight')
+        let amountOrder = document.querySelector('.js-totalOrder');
+        let totalOrderPrice = document.querySelector('.js-totalOrderPrice');
+
+        let totalPriceBormanPrice =0
+        let TotalPriceAoukePrice = 0;
+        let TotalPriceLobinniPrice = 0;
+        let TotalPricePonigerPrice = 0;
+        let TotalPriceTeintopPrice = 0;
+        let AmountAoukePrice = 0;
+        let AmountBormanPrice = 0;
+        let AmountLobinniPrice = 0;
+        let AmountPonigerPrice = 0;
+        let AmountTeintopPrice = 0;
+        let index=0
+        for (let i = 0; i < listOrder.length; i++) {
+            index=i;
+            soLuongTungLoaiSP(index);
+            // thongKeGiaTienTungLoaiSP(index)
+            // console.log(totalPriceBormanPrice);
+          }
+          console.log(TotalPriceAoukePrice);
+          console.log(totalPriceBormanPrice);
+          console.log(TotalPriceLobinniPrice);
+          console.log(TotalPricePonigerPrice);
+          console.log(TotalPriceTeintopPrice);
+
+          PriceWatches.innerHTML =
+          `
+            <li>
+            Doanh thu
+            </li>
+
+            <li class="js-Aouke">
+            $${TotalPriceAoukePrice} 
+            </li>
+
+            <li class="js-Borman">
+            $${totalPriceBormanPrice}
+            </li>
+
+            <li class="js-Lobinni">
+            $${TotalPriceLobinniPrice}
+            </li>
+
+            <li class="js-Poniger">
+            $${TotalPricePonigerPrice}
+            </li>
+
+            <li class="js-Teintop">
+            $${TotalPriceTeintopPrice}
+            </li>
+          `
+                      
+                      function loadThongKeDonHang() {
+                        let totalPriceOrder = 0;
+                        let SL = 0
+                        // đơn hàng và doanh thu 
+                        for (let i = 0; i < listOrder.length; i++) {
+            if (listOrder[i].tinhTrangDonHang === 'Đã xử lý') {
+              SL++;
+              amountOrder.innerText = SL;
+              totalPriceOrder +=listOrder[i].tongtienphaitra
+              totalOrderPrice.innerText = `$${totalPriceOrder}`
+            }
+          }
+        }
+        
+        
+        function soLuongTungLoaiSP(index) {
+          let PriceBormanPrice = 0;
+          let PriceAoukePrice = 0;
+          let PriceLobinniPrice = 0;
+          let PricePonigerPrice = 0;
+          let PriceTeintopPrice = 0;
+          for (let i = 0; i < listOrder[index].sanpham.length; i++) {
+            let Products = get_Infor_by_id(listOrder[index].sanpham[i].ID_product)
+            if (Products.Type_Product === 'Borman Watch') {
+              AmountBormanPrice = listOrder[index].sanpham[i].count
+              PriceBormanPrice = Products.Price_Product
+              totalPriceBormanPrice +=(parseInt(AmountBormanPrice)*parseInt(PriceBormanPrice))
+          
+
+            }
+            if (Products.Type_Product === 'Aouke Watch') {
+              AmountAoukePrice = listOrder[index].sanpham[i].count
+              PriceAoukePrice = Products.Price_Product
+              TotalPriceAoukePrice +=( parseInt(AmountAoukePrice)*parseInt(PriceAoukePrice))
+            }
+            if (Products.Type_Product === 'Lobinni Watch') {
+              AmountLobinniPrice += listOrder[index].sanpham[i].count
+              PriceLobinniPrice = Products.Price_Product
+              TotalPriceLobinniPrice +=( parseInt(AmountLobinniPrice)*parseInt(PriceLobinniPrice))
+            }
+            if (Products.Type_Product === 'Poniger Watch') {
+              AmountPonigerPrice += listOrder[index].sanpham[i].count
+              PricePonigerPrice = Products.Price_Product
+              TotalPricePonigerPrice +=( parseInt(AmountPonigerPrice)*parseInt(PriceLobinniPrice))
+            }
+            if (Products.Type_Product === 'Teintop Watch') {
+              AmountTeintopPrice += listOrder[index].sanpham[i].count
+              PriceTeintopPrice = Products.Price_Product
+              TotalPriceTeintopPrice +=( parseInt(AmountTeintopPrice)*parseInt(PriceTeintopPrice))
+            }
+          }
+          // console.log(AmountAoukePrice);
+          
+        }
+
+        function thongKeGiaTienTungLoaiSP(index) {
+          for (let i = 0; i < listOrder[index].sanpham.length; i++) {
+            let Products = get_Infor_by_id(listOrder[index].sanpham[i].ID_product)
+           
+          }
+        }
+    </script>
+</body>
+</html>

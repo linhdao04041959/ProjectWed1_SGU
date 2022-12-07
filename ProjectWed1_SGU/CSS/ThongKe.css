@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* attribute dung chung */
+.col-half{
+    width: 50%;
+}
+
+.content__container-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.box-head{
+    border: 2px solid;
+    margin: 30px 10px;
+    padding: 75px 0;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.title-h3{
+    font-size: 25px;
+}
+.descript{
+    font-size: 13px;
+}
+
+.content__container-SubCont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 10px;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.content__container-SubCont ul{
+    padding: 10px;
+    padding: 0 80px;
+}
+
+.content__container-SubCont ul li{
+    list-style-type: none;
+    margin-top: 8px;
+    font-size: 18px;
+}
+
+.content__container-SubCont ul li:first-child{
+    font-size: 25px !important;
+    font-weight: 600;
+}

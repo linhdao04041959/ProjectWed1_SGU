@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/Admin.css">
+    <link rel="stylesheet" href="./CSS/order.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/QLDonHang.css">
+    <title>Document</title>
+    <style>
+      .head__modal{
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 22px;
+        background-color: #0091ff;
+        position: relative;
+      }
+
+      .closeProduct{
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        font-size: 20px;
+      }
+      .closeProduct i:hover{
+        cursor: pointer;
+        opacity: .5;
+      }
+    </style>
+</head>
+<body onload="LoadInfoOrder()">
+    <div class="main">
+        <!-- SIDEBAR:BEGIN -->
+        <div class="sidebar col-W-20">
+          <ul class="sidebar__nav">
+            <li>
+              <a href="Admin_QLSanPham.html" class="sidebar__links">
+                <i class="fa-sharp fa-solid fa-boxes-packing sidebar__nav-icon"></i>
+                Quản lí sản phẩm
+              </a>
+    
+            </li>
+    
+            <li>
+              <a href="#" class="sidebar__links">
+                <i class="fa-solid fa-cart-shopping sidebar__nav-icon"></i>
+                Quản lý đơn hàng
+              </a>
+            </li>
+    
+            <li>
+              <a href="Admin_UserManagement.html" class="sidebar__links">
+                <i class="fa-solid fa-users sidebar__nav-icon"></i>
+                Quản lý người dùng
+              </a>
+            </li>
+    
+            <li>
+              <a href="./Admin_Thongke.html" class="sidebar__links">
+                <i class="fa-solid fa-chart-column sidebar__nav-icon"></i>
+                Thống kê 
+              </a>
+            </li>
+    
+            <li>
+              <a href="./index.html" class="sidebar__links">
+                <i class="fa-solid fa-power-off sidebar__nav-icon"></i>
+                Đăng xuất
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="container col-W-80">
+          <!-- container-HEADER -->
+          
+          <div class="header">
+                <h2>Quản lý đơn hàng</h2>
+                  
+          </div>
+    
+          <!-- container-content -->
+    
+          <div class="content">
+            <div class="content__boxes-Order">
+              <div class="content__spaceOfOrder js-content__spaceOfOrder"></div>
+            </div>
+          </div>
+
+
+
+
+          <div class="modal JS-modal">
+           
+            <div class="modal__container">
+              <div class="head__modal">
+                <h3 class="title-h3 col-quarter">Sản phẩm</h3>
+                <h3 class="title-h3 col-quarter">Tên sản phẩm </h3>
+                <h3 class="title-h3 col-quarter">Số lượng</h3>
+                <h3 class="title-h3 col-quarter">Thành tiền</h3>
+              <div class="closeProduct js-closeProduct" onclick="closeModal()"><i class="fa-regular fa-circle-xmark "></i></div>
+              </div>
+              <div class="content__Boxes"></div>
+            </div>
+        </div>
+
+        </div>
+        <script src="./JS/index.js"></script>
+        <script>
+          let btn_close = document.querySelector('.js-closeProduct')
+          let modal = document.querySelector('.JS-modal');
+          let modalProducts = document.querySelector('.content__Boxes')
+          // let $$ = document.querySelectorAll.bind(document);
+          let $$ = document.querySelectorAll.bind(document);
+          let index =0
+          let listOrder = localStorage.getItem('danhsachdonhang')?JSON.parse(localStorage.getItem('danhsachdonhang')):[];
+          let IDCustomers = ``;
+          let CustomerNames = ``;
+          let Products = ``;
+          let CustomerPhones = ``;
+          let CustomerAddresses = ``;
+          let TotalPriceOrder = ``;
+          let StatusOrder = ``;
+          for (let i = 0; i < listOrder.length; i++) {
+            let checked =''
+          if (listOrder[i].tinhTrangDonHang === 'Đã xử lý') {
+            checked = 'checked disabled';
+          }
+          index = i;
+          IDCustomers += `<li>${listOrder[i].maKH}</li>`
+          CustomerNames += `<li>${listOrder[i].tenkhachhang}</li>`
+          CustomerPhones += `<li>${listOrder[i].dienthoai}</li>`
+          CustomerAddresses += `<li>${listOrder[i].diachi}</li>`
+          TotalPriceOrder += `<li>$${listOrder[i].tongtienphaitra}</li>`
+          Products += `<li><a href="#" class="ShowOrderOfCustomer" onclick="ShowModal(${index})">Xem sản phẩm</a></li>`
+          StatusOrder +=`<li><input type="checkbox" index ="${index}"  oninput="CheckOrderHandle(${index})" ${checked} class ="js-CheckBox"></li>`
+        }
+        
+        
+        function LoadInfoOrder() {
+          let formOrder = document.querySelector('.js-content__spaceOfOrder');
+          formOrder.innerHTML =
+          `
+            <ul>
+            <li>IdKH</li>
+            <li>${IDCustomers}</li>
+            </ul>
+            <ul>
+            <li>TenKH</li>
+            <li>${CustomerNames}</li>
+            </ul>
+            <ul>
+            <li>DSSP</li>
+            <li>${Products}</li>
+            </ul>
+            <ul>
+            <li>SDT</li>
+            <li>${CustomerPhones}</li>
+            </ul>
+            <ul>
+            <li>Địa chỉ</li>
+            <li>${CustomerAddresses}</li>
+            </ul>
+            <ul>
+            <li>Tổng tiền hóa đơn</li>
+            <li>${TotalPriceOrder}</li>
+            </ul>
+            <ul>
+            <li>Tình trạng Đơn hàng</li>
+            <li>${StatusOrder}</li>
+            </ul>
+          `
+                    }
+          LoadInfoOrder();
+          function CheckOrderHandle(index) {
+            let checkBtns = $$('.js-CheckBox')         
+                console.log(index);
+                listOrder[index].tinhTrangDonHang = 'Đã xử lý'
+                localStorage.setItem('danhsachdonhang',JSON.stringify(listOrder));
+                checkBtns[index].disabled = true
+                // for (let i = 0; i < listOrder[index].sanpham.length; i++) {
+                //   let product = get_Infor_by_id(listOrder[index].sanpham[i].ID_product);
+                //     console.log(product);
+                // }
+                console.log(listOrder[index].sanpham);
+          }
+
+          function closeModal() {
+            modal.classList.remove('open');
+            // renderProducts(index);
+      }
+
+
+          function ShowModal(index) {
+            modal.classList.add('open');
+            renderProducts(index);
+      } 
+
+            function renderProducts(index) {
+              let Products = ``;
+              for (let i = 0; i < listOrder[index].sanpham.length; i++) {
+                  let product = get_Infor_by_id(listOrder[index].sanpham[i].ID_product);
+                    console.log(product);
+                    Products += 
+                    `
+                    <div class="content__Boxes-products">
+                      <div class="img-left">
+                        <img src="${product.image_Product}" alt="" class="image-product col-quarter">
+                        </div>
+                        <span class="font-span col-quarter">${product.Name_Product}</span>
+                        <span class="font-span col-quarter">${listOrder[index].sanpham[i].count}</span>
+                        <span class="font-span col-quarter">$${product.Price_Product}</span>
+                        </div>
+                        `
+                      }
+              modalProducts.innerHTML = Products
+              // console.log();
+            }
+        </script>
+</body>
+</html>

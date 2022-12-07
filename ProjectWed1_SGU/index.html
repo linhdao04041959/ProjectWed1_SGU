@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./CSS/Bill.css">
+    <link rel="stylesheet" href="./CSS/vidu.css">
+    <link rel="stylesheet" href="./images/themify-icons-font/themify-icons/themify-icons.css">
+    <!-- <link rel="stylesheet" href="./linh/CSS/Admin.css"> -->
+    <link rel="stylesheet" href="./CSS/Account.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+
+        .titleList{
+            line-height: 50px;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .close{
+            font-size: 30px;
+            padding: 10px;
+        }
+
+        .close:hover{
+            cursor: pointer;
+            opacity: .7;
+        }
+
+        .form-input{
+            height: 30px;
+        }
+        .labels{
+            line-height: 30px;
+            font-weight: 600;
+        }
+        .message-Error{
+            font-size: 14px;
+            font-weight: 550;
+            color: #f6412d;
+        }
+        .content{
+            box-shadow: 0px 0px 10px 0px black;
+            margin: 10px;
+            border-radius: 20px
+        }
+        .header-danhsachdonhang button:hover{
+            cursor: pointer;
+            opacity: .4;
+        }
+       
+    </style>
+</head>
+
+<body onload="show_product('Info-Products'),show_page('Info-Products'),hienthinguoidangsudung(),show_product_in_shopping_cart()">
+    <div id="index-body">
+        <!-- ---------------------------header(start)<Kiet thuc hien>--------------------- -->
+        <div id="index-header">
+            <h class="container">
+                <a href="" id="logo">
+                    <img src="./images/logo_A.png">
+                </a>
+                <ul id="main-menu">
+                    <li><a href="">Trang Chủ</a></li>
+                    <li><a href="">Sản Phẩm</a>
+                        <ul class="sub-menu">
+                            <li><button onclick="locsanpham('Aouke Watch')">Aouke Watch</button></li>
+                            <li><button onclick="locsanpham('Borman Watch')">Borman Watch</button></li>
+                            <li><button onclick="locsanpham('Lobinni Watch')">Lobinni Watch</button></li>
+                            <li><button onclick="locsanpham('Poniger Watch')">Poniger Watch</button></li>
+                            <li><button onclick="locsanpham('Teintop Watch')">TeinTop Watch</button></li>
+                        </ul>
+                    </li>
+                    <!-- <li><a href="">Liên Hệ</a></li> -->
+                    <li><button onclick="header()">Liên Hệ</button></li>
+                </ul>
+
+
+                <div id="login">
+                    <a href="#" class="Login Link-Account" onclick="OpenModalLogin()">Đăng Nhập</a>
+                    |
+                    <a href="#" class="Register Link-Account" onclick="OpenModalRegister()">Đăng Ký</a>
+                </div>
+
+
+                <div id="user">
+                    <div class="ti-bell" id="count-bill"></div>
+                    <li class="ti-user" id="username" style="display:none;"></li>
+                    <li class="ti-user" id="display-option" style="display:block;"></li>
+                </div>
+            </h>
+        </div>
+
+        <!-- --------------------------------------- header(end)-------------------------------- -->
+
+
+
+        <!-- ----------------------------------------index-nav---------------------------------- -->
+        <div id="index-nav">
+            <!-- thanh tim kiem san pham va gio hang -->
+            <input id="search" type="text" class="input-field" placeholder="search" oninput="search_product()">
+            <span class="button-search-product">
+                <button onclick="search_product()"><i class="ti-search"></i></button>
+            </span>
+            <span class="button-view-shopping-cart">
+                <div class="count-on-icon-shopping-cart" id="count-on-icon-shopping"></div>
+                <button onclick="view_shopping_cart()"><i class="ti-shopping-cart icon-shopCart"></i></button>
+                <h3 style="color:black">giỏ hàng</h3>
+                <div id="anounce">
+                    <!-- <div id="notification_after_click_chonmua">
+                        ✅ Thêm sản phẩm thành công
+                    </div> -->
+                </div>
+            </span>
+            <!-- <a href="shopping_cart.html"><i class="ti-shopping-cart"></i></a> -->
+        </div>
+        <!-- --------------------------------------------index-nav-end--------------------------- -->
+
+
+
+
+
+
+
+        <!-- -----------------------------slider(start)<Kiet thuc hien>-------------------------->
+        <section id="index-slider">
+            <div class="aspect-ratio-169">
+                <img src="./images/anhslider/logo Slider1.jpg">
+                <img src="./images/anhslider/logo Slider2.jpg">
+                <img src="./images/anhslider/logo Slider 3.jpg">
+                <img src="./images/anhslider/logo Slider 4.jpg">
+                <img src="./images/anhslider/logo Slider 5.jpg">
+                
+            </div>
+            <div class="dot-Container">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </section>
+
+        <!-- ----------------------------------slider(end)------------------------------->
+
+
+
+
+
+
+
+
+        <!-- ---------------------------------content(start)----------------------------->
+        <div id="index-content">
+            <!-- ---------------------phan loc sna pham----------------------- -->
+            <!-- <div id="left">Left <br> <br> <br> <br> <br> <br> </div> -->
+            <!-- --------------phan hien thi danh sach san pham----------- -->
+            <div id="right"></div>
+
+            <!-- <div id="show_product_search"></div> -->
+
+            <div id="count-of-page-product">
+                <div id="show-page">
+                    <!-- <div class="page"></div> -->
+                </div>
+            </div>
+            <!-- -------------------phan hien thi chi tiet san pham----------------- -->
+            <div id="show_detail_item">
+            </div>
+            <!-- --------------------hien thi cac san pham search------------------ -->
+
+            <!-- -------------------show gio hang---------------------- -->
+            <div id="show_product">
+                <div id="div_shopping_cart">
+                    <div id="header-shopping-cart">
+                        <p>Giỏ Hàng</p>
+                        <button onclick="back_to_page()"><i class="ti-close"></i></button>
+                    </div>
+                    <div id="nav-shopping-cart">
+                        <div class="grip7">
+                            <span>Sản phẩm</span>
+                        </div>
+                        <div class="grip3">
+                            <span>Đơn giá</span>
+                        </div>
+                        <div class="grip2">
+                            <span>Số lượng</span>
+                        </div>
+                        <div class="grip3">
+                            <span>Thành tiền</span>
+                        </div>
+                        <div class="grip1">
+                            <span>
+                                <img
+                                    src="https://thumbs.dreamstime.com/b/trash-bin-icon-trash-bin-icon-white-background-116649471.jpg">
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div id="show_product_in_shopping_cart">
+
+                    </div>
+                    <div id="total-price-in-shopping-cart">
+                        <span id="totalprice">tong tien</span>
+                    </div>
+                    <div id="footer-shopping-cart">
+                        <button onclick="delete_all_product()">Xoa tat ca</button>
+                        <button onclick="pay()">Thanh toán</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- -------------------------------thong bao khi nguoi dung xoa san pham----------------- -->
+            <div id="notification-body">
+                <div id="notification">
+                    <img src="./images/Warning.jpg" alt="">
+                    <h4>Xoá sản phẩm</h4>
+                    <span> Bạn có muốn xóa sản phẩm đang chọn?</span>
+                    <div id="button-confirm-delete" onclick="confirm_delete()"><button>Xác Nhận</button></div>
+                    <div id="button-confirm-cancel" onclick="go_back_shopping_cart()"><button>Hủy</button></div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- ------------------------------------content(end)------------------------------->
+
+
+
+
+        <!-- -------------------------------------BILL_---------------------------------- -->
+        <div id="bill-content">
+
+            <div class="content-container">
+                <div id="content-container-header">
+                    <h3>Đơn hàng</h3>
+                    <div id="show-product-in-bill"></div>
+                </div>
+                <br><br>
+                <h4 id="money-to-be-pay"></h4>
+                <br><br>
+                <div class="content-container-body">
+                    <h3>Thông tin giao hàng</h3>
+                    <div>
+                        <label for="">  
+                            <h4>Hình thức giao hàng</h4>
+                        </label>
+                        <div class="type">
+                            <input type="radio" id="save" name="order" value="save" />
+                            <label for="sa labels ve"><span>Giao hàng tiết kiệm</span></label>
+                        </div>
+                        <div class="type">
+                            <input type="radio" id="quick" name="order" value="quick" />
+                            <label for="qu labels ick"><span>Giao hàng nhanh</span></label>
+                        </div>
+                        <div class="type">
+                            <input type="radio" id="normal" name="order" value="normal" />
+                            <label for="no labels rmal"><span>Giao hàng</span></label>
+                        </div>
+                        <br>
+                        <span class="ERROR" id="error_order">Bạn chưa chọn phương thức giao hàng</span>
+                    </div>
+                    <div>
+                        <label for="">  
+                            <h4>Địa chỉ giao hàng</h4>
+                        </label>
+                        <input type="text" id="address">
+                        <br>
+                        <span class="ERROR" id="error_address">Bạn chưa điền địa chỉ giao hàng</span>
+                    </div>
+                    <div>
+                        <label for="">  
+                            <h4>Tên người nhận</h4>
+                        </label>
+                        <input type="text" id="name">
+                        <br>
+                        <span class="ERROR" id="error_name">Bạn chưa điền tên người nhận hàng</span>
+                    </div>
+                    <div>
+                        <label for="">  
+                            <h4>Số điện thoại</h4>
+                        </label>
+                        <input type="text" id="phone">
+                        <br>
+                        <span class="ERROR" id="error_phone">Bạn chưa điền số điện thoại người nhận hàng</span>
+                    </div>
+                    <div class="order"><button onclick="datmua(),spawn()">ĐẶT MUA</button></div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- ------------------------------------------Bill(end)---------------------------------- -->
+
+
+
+        <!-- ----------------------------------don hang----------------------------------- -->
+        <div class="hienthidanhsachdonhang" id="hienthidonhang">
+            <div class="danhsachdonhang">
+                <div class="header-danhsachdonhang" style="position:relative;">
+                    <h2 class="titleList">Danh sách đơn hàng</h2>
+                    <button class="ti-close" onclick="quay_lai_trang()"></button>
+                </div>
+                <div class="content-danhsachdonhang" id="xemdonhang">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Login:Begin -->
+        <div class="modal-overlay">
+            <div class="modal-overlay__Login" style="width: 400px;">
+                <div class="modal-overlay__Login-header">
+                    <h1 style="margin-left:100px; padding: 10px;">Đăng nhập</h1>
+                    <div class="close-Login"><i class="fa-regular fa-circle-xmark close-icon JS-close-icon-Login close"
+                            onclick="CloseModalLogin()"></i></div>
+                </div>
+                <div class="modal-overlay__content">
+                    <div class="div-Error"></div>
+                    <form action="" class="form-Login">
+                        <div class="form-Login__Name">
+                            <label class=" labels size-font col-35" for="userName">UserName:</label>
+                            <input type="text" name="userName"
+                                class="Name-Login form-input JS-Name-Login size-Input JS-ValueLogin col-65" placeholder="Username"
+                                oninput="InputValidateAccount()">
+                        </div>
+                        <p style="margin-left: 120px;"
+                            class="message-Error js-messageErrorLogin js-messageErrorLoginUserName"></p>
+                        <div class="form-Login__Password">
+                            <label class=" labels size-font col-35" for="passWord">PassWord:</label>
+                            <input type="password" name="passWord"
+                                class="Password-Login form-input JS-Password-Login JS-ValueLogin size-Input col-65"
+                                placeholder="Password" oninput="InputValidateAccount()">
+                        </div>
+                        <p style="margin-left: 120px;"
+                            class="message-Error js-messageErrorLogin js-messageErrorLoginPass"></p>
+                    </form>
+                    <div class="Div-btnLogin"><button class="btn-login" onclick="ValidateAccount()">Đăng
+                            nhập</button></div>
+                    <div class="Space">
+                        <div class="Space__ForgotAndLoginAdmin">
+                            <a href="#" class="Forgot-Password Link-Account">
+                                Forgot Password?
+                            </a>
+                            <br>
+                            <a href="./formLoginAdminPage.html" class="Login-Admin Link-Account">
+                                Login Admin?
+                            </a>
+
+                        </div>
+
+                        <div class="Div-Register">
+                            Do not have an account?
+                            <a href="#" class="Div-Register__account Link-Account">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Login:End -->
+
+
+
+        <!-- Register:Begin -->
+        <div id="Register" class="Modal-overlay">
+            <div class="Modal-overlay__Register" style="width: 450px;">
+                <div class="Modal-overlay__Register-header">
+                    <h1 style="margin-left:150px; padding: 10px;">Đăng ký</h1>
+                    <div class="close-Register"><i class="fa-regular fa-circle-xmark close-icon close JS-close-icon-Register"
+                            onclick="CloseModalRegister()"></i></div>
+                </div>
+                <div class="Modal-overlay__content">
+                    <form action="" class="form-Input">
+                        <div class="form-Register">
+                            <label class=" labels size-font col-35" for="">Tên tài khoản:</label>
+                            <input type="text" name="tên tài khoản"
+                                class="Name-Register JS-InputName form-input JS-Input-Register  size-Input col-65"
+                                oninput=" availedFrameRegister();" placeholder="Tên tài khoản">
+                        </div>
+                        <div class="box-message">
+                            <p class="message-Error" style="margin-left: 150px;"></p>
+                        </div>
+                        <div class="form-Register">
+                            <label class=" labels size-font col-35" for="passWord">Mật khẩu:</label>
+                            <input type="password" name="mật khẩu"
+                                class="Password-Register JS-InputPass form-input JS-Input-Register  size-Input col-65"
+                                oninput=" availedFrameRegister();" placeholder="Mật khẩu">
+                        </div>
+                        <div class="box-message">
+                            <p class="message-Error" style="margin-left: 150px;"></p>
+                        </div>
+                        <div class="form-Register">
+                            <label class=" labels size-font col-35" for="">Nhập lại mật khẩu:</label>
+                            <input type="password" name="lại mật khẩu" oninput="availedFrameRegister();"
+                                class="Name-Register JS-InputpassRepeat form-input JS-Input-Register  size-Input col-65"
+                                placeholder="Nhập lại mật khẩu">
+                        </div>
+                        <div class="box-message">
+                            <p class="message-Error js-messageErrorNotSame" style="margin-left: 150px;"></p>
+                        </div>
+                        <div class="form-Register">
+                            <label class=" labels size-font col-35" for="passWord">Phone:</label>
+                            <input type="number" name="số điện thoại"
+                                class="Password-Register JS-Inputphone form-input JS-Input-Register  size-Input col-65"
+                                oninput="availedFrameRegister()" placeholder="Nhập sđt">
+                        </div>
+                        <div class="box-message">
+                            <p class="message-Error js-messageError-Phone" style="margin-left: 150px;"></p>
+                        </div>
+                    </form>
+                    <div class="Div-btnRegister">
+                        <div class="btn-Register" onclick="submitAccount()">Đăng ký</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Register:End -->
+
+        <!-- --------------------------------------------footer(start)<Khoa thuc hien>---------------------------------- -->
+        <div id="index-footer">
+            <div class="row">
+                <div class="centerfooter">
+                    <div class="footer1">
+                        <img src="./images/logo_A.png">
+                    </div>
+                    <div class="footer2">
+                        <div class="underline">
+                            <h4>FOLLOW US</h4>
+                        </div>
+                        <div class="icon">
+                            <li><a href="#"><b class="ti-facebook" aria-hidden="true"></b></a></li>
+                            <li><a href="#"><b class="ti-instagram" aria-hidden="true"></b></a></li>
+                        </div>
+
+                    </div>
+                    <div class="footer3">
+                        <div class="underline">
+                            <h4>CONTANT US</h4>
+                        </div>
+                        <div class="address"> 273 An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh</div>
+                        <div id="map" style="width: 500px; height: 130px">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.669446514774!2d106.68007711376818!3d10.759938662442563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1c81c64183%3A0xd3109d7a7a8f753c!2zMjczIEFuIEQuIFbGsMahbmcsIFBoxrDhu51uZyAzLCBRdeG6rW4gNSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1670359443977!5m2!1svi!2s" width="500" height="130" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row"></div> -->
+            </div>
+            <!-- ----------------------------------footer(end)----------------------------------- -->
+        </div>
+    </div>
+    <script src="./JS/index.js"></script>
+    <!-- <script src="./admin.js"></script> -->
+    <script src="./JS/AddProduct.js"></script>
+    <script src="./JS/AccountLogin.js"></script>
+    <script src="./JS/AccountRegister.js"></script>
+</body>
+</html>

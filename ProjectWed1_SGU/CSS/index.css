@@ -1,0 +1,1377 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+
+
+/* -------------------------------------bo cuc trang giao dien--------------------------------- */
+#index_body{
+    width: 100%;
+    height: auto;
+}
+
+#index-header{
+    background-color: black;
+}
+
+#index-nav{
+    width: 100%;
+    height: 60px;
+    /* background-color: rgb(88, 78, 78); */
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: 2px solid black;
+}
+
+
+#index-slider{
+    padding-bottom: 30px;
+    border-bottom: solid 4px #000;
+    overflow:hidden
+}
+
+
+
+#index-content{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+}
+
+
+#index-content>#right{
+    width: 100%;
+    height: auto;
+    color: rgb(0, 0, 0);;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+#index-content>#show_product_search{
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+    float: left;
+    color: #fff;;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+#index-footer{
+    background-color: black;
+    width: 100%;
+    height: 200px;
+    /* float: left; */
+}
+
+
+/* het phan bo cuc trang giao dien ============================================================*/
+
+
+
+
+
+
+
+
+
+/* bo cuc mot cart san pham hien thi trong trang giao dien ========================================*/
+
+.product{
+    width: 300px;
+    height: 450px;
+    background-color: rgb(255, 255, 255);
+    float: left;
+    margin: 20px;
+    /* border: 1px solid rgb(96, 118, 241); */
+    border-radius: 5px 5px 5px 5px;
+}
+
+
+.product button{
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0,0,0,0);
+    border: 0;
+}
+
+
+.product img{
+    width: 80%;
+    height: 80%;
+}
+
+
+.product:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+/* het phan bo cuc mot cart san pham trong trang giao dien ======================================== */
+
+
+
+
+
+
+
+
+/* bo cuc mot phan chi tiet san pham ============================================================ */
+
+#detail_product{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top:0;left: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+.detail{
+    width: 50%;
+    height: 400px;
+    margin-top: 100px;
+    background-color: #fff;
+}
+
+
+
+.detail.top{
+    width: 100%;
+    height: 350px;
+}
+
+
+.top .left1{
+    width: 35%;
+    height: 350px;
+    /* background-color: rgb(24, 220, 27); */
+    position: relative;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+
+.top .right1{
+    width: 65%;
+    height: 300px;
+    color: black;
+    float: left;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    text-align: center;
+}
+
+
+
+.right1 .go-back{
+    width: 100%;
+    height: 50px;
+    position:relative;
+}
+
+
+
+
+.detail .buttom{
+    width: 100%;
+    height: 50px;
+    display:flex;
+    justify-content:right;
+    align-items: center;
+}
+
+
+
+
+/* thiet ke phan left1,go-back */
+.left1 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.buttom button{
+    padding:10px;
+    width: 200px;
+    background-color: red;
+    color: #fff;
+    font-size: larger;
+    margin-right: 50px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.buttom button:hover{
+    transform: rotateX(45deg);
+    transform: rotateY(30deg);
+}
+
+
+
+.go-back button{
+    position: absolute;
+    top: 0;right: 0;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 900;
+    margin: 10px;
+    border: 0;
+}
+
+.go-back button:hover{
+    transform: scale(1.3,1.3);
+}
+
+
+
+
+
+
+/* chinh sua phan index-nav cho trang giao dien */
+#index-nav input{
+    padding: 10px;
+    width: 40%;
+    left: 300px;
+    position: absolute;
+    outline: none;
+    /* border: none; */
+}
+
+
+
+/* 
+#index-nav button{
+    right: 421px;
+    position: absolute;
+    font-size: 15px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid black;
+
+} */
+
+.icon-shopCart:hover{
+    cursor: pointer;
+}
+
+.count-on-icon-shopping-cart{
+    width: 30px;
+    height: 20px;
+    background-color: rgb(255, 191, 0);
+    position: absolute;
+    margin-left:-20px;
+    margin-top: -5px;
+    border-radius: 10px 10px;
+    color: #000;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+}
+
+#count-bill{
+    display: none;
+}
+
+.ti-bell{
+    position: absolute;
+    margin-left:-10px;
+    margin-top: -10px;
+    font-size:large;
+    color: rgb(255, 225, 0);
+}
+
+
+#index-nav .button-search-product{
+    right: 421px;
+    position: absolute;
+    font-size: 15px;
+    background-color: #fff;
+
+}
+
+.button-search-product button{
+    width: 100%;
+    height: 100%;
+    padding: 9px;
+}
+
+
+#index-nav .button-view-shopping-cart{
+    right: 50px;
+    position: absolute;
+    font-size: 25px;
+    background-color: #fff;
+    border: 0;
+    text-decoration: none;
+}
+
+.button-view-shopping-cart button{
+    width: 100%;
+    height: 100%;
+    /* padding: px; */
+    font-size: larger;
+    border: 0;
+    background-color: #fff;
+}
+
+.button-view-shopping-cart h3{
+    color: black;
+    font-size: small;
+}
+
+
+#index-nav button:hover{
+    background-color: azure;
+}
+
+#notification_after_click_chonmua{
+    background-color:red;
+    width:250px;
+    height:50px;
+    position:absolute;
+    z-index:1;
+    right:20px;
+    font-size:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:6px
+
+}
+
+
+
+
+/* thiet ke phan product-qty trong trang chi tiet san pham  ==================*/
+#product-qty{
+    width: 100px;
+    height: 30px;
+    /* background-color: aqua; */
+    margin-left: 155px;
+}
+
+
+#product-qty>#sub{
+    width: 30%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#product-qty>#count{
+    width: 40%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#product-qty>#add{
+    width: 30%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* thiet ke sub,add */
+#product-qty button{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid black;
+}
+
+
+#product-qty button:hover{
+    transform:scale(1.2,1.2);
+}
+
+
+
+
+
+/* -----------------------thet ke index-slider---------------------------------------------------------- */
+
+
+.aspect-ratio-169 {
+    display: block;
+    position: relative;
+    padding-top: 20%;
+    transition: 2s;
+    height: 100vh;
+    /* max-width: 100%; */
+    /* overflow-x: hidden; */
+}
+  
+
+.aspect-ratio-169 img {
+    display: inline;
+    position: absolute;
+    width: 100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+
+.dot-Container{
+    position: absolute;
+    height:30px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.dot{
+    border-radius: 50%;
+    height:20px;
+    width:20px;
+    background-color: rgb(156, 161, 161);
+    margin-right:12px;
+    margin-top:5px;
+}
+
+
+.dot.active{
+    background-color: #000;
+}
+
+
+/* -----------------------------------thiet ke index-slider end----------------------- */
+
+
+/* ---------------------------------thiet ke header --------------------------- */
+.container{
+    max-width: 960px;
+    margin: 0px auto;
+}
+
+
+
+#logo{
+    padding:0px 5px;
+}
+
+#logo img{
+    max-width: 100px;
+    height: auto;
+}
+
+
+h{
+    display:flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+#main-menu{
+    display: flex;
+    list-style: none;
+    margin:0;
+    padding: 0;
+}
+#main-menu li{
+    position: relative;
+}
+
+
+#main-menu li a{
+    color: white;
+    display:block;
+    padding:40px 20px;
+    text-decoration: none;
+    right: 100px;
+}
+
+
+
+#main-menu li button{
+    color: white;
+    display:block;
+    padding:37px 20px;
+    text-decoration: none;
+}
+/* ------------ Thiết lập border khi hover ----------- */
+#main-menu>li>a{
+    position: relative;
+}
+
+
+
+#main-menu>li>a::before{
+    height:3px;
+    background:rgb(232, 20, 20);
+    position: absolute;
+    content: "";
+    width:0px;
+    bottom: 0px;
+    
+    left: 0px;
+    transition: 0.25s;
+}
+
+
+#main-menu>li:hover>a::before{
+    width:100%;
+    padding-right: 10px;
+}
+
+/* ---------- */
+#main-menu>li>button{
+    position: relative;
+    background-color: black;
+    font-size: 16px;
+    top: 0px;
+    right: 100px;
+}
+
+
+#main-menu>li>button::before{
+    height:3px;
+    background:rgb(232, 20, 20);
+    position: absolute;
+    content: "";
+    width:0px;
+    bottom: 0px;
+    left: 0px;
+    transition: 0.25s;
+}
+
+
+#main-menu>li:hover>button::before{
+    width:100%;
+
+}
+
+#login{
+    display:inline-block;
+    position: absolute;
+    right:0px;
+    color:#fff;
+}    
+
+#login a{
+    padding: 25px 12px;
+    display: inline-block;
+    line-height: 48px;
+    font-size: 15px;
+    color:#fff;
+    text-decoration: none;
+}
+
+#user{
+    display:none;
+    position: absolute;
+    right:100px;
+    top: 40px;
+    color:#fff;
+    z-index: 1;
+} 
+
+#username{
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    font-size: large;
+}
+
+
+/* .ti-user{
+    margin-top: 0px;
+} */
+
+
+#user li .account{
+    display: none;
+}
+
+
+#user li button{
+    background-color: rgb(0, 0, 0);
+    justify-content: center;
+    margin: auto;
+    color: white;
+    padding: 5px;
+}
+
+
+#user li:hover >ul.account{
+    display: block;
+}
+
+#user .account li:hover> button{
+    color:red;
+    cursor: pointer;
+
+}
+
+
+
+.account li{
+    display:flex;
+    height:auto;
+    width: 130px;
+    padding:5px 2px;
+    border-radius: 5px 5px;
+    justify-content: center;
+    background-color:rgb(0, 0, 0) ;
+    z-index: 1;
+}
+
+
+/* .account li:hover{
+    display: block;
+   
+} */
+
+/* #account li:hover{
+    display: block;
+} */
+/* ---------- */
+
+
+#main-menu>li.has-child::after{
+    content:"\f07a";
+    color: #fff;
+    position: absolute;
+    top:0px;
+    right: 0px;
+    padding: 40px 0px;
+}
+
+#main-menu .sub-menu>li.has-child::after{
+    content: "\f105";
+    position: absolute;
+    color: #fff;
+    top:0px;
+    right: 0px;
+    padding:8px 0px
+}
+
+#main-menu .sub-menu li:hover> button{
+    color:red;
+    cursor: pointer;
+}
+#main-menu .sub-menu>li.has-child:hover::after{
+    color:red;
+}
+
+/* ------------------------------------------------------- */
+.sub-menu{
+    z-index: 1;
+}
+
+
+#main-menu li .sub-menu{
+    position: absolute;
+    background-color: black;
+    padding:15px 0px;
+    list-style: none;
+    width: 116px;  
+    left: -101px; 
+    display: none;
+    border-radius: 10px;
+}
+
+
+#main-menu .sub-menu li button{
+    background-color: black;
+    padding: 10px 10px;
+    margin: 2px;
+}
+
+
+#main-menu li:hover >ul.sub-menu{
+    display: block;
+}
+
+#main-menu li .sub-menu a{
+    padding:8px 15px;
+    border-bottom:1px solid #333;
+}
+
+
+#main-menu li .sub-menu li:last-child a{
+    border:none;
+}
+
+#main-menu li .sub-menu li .sub-menu{
+    left:150px;
+    top:-15px;
+    margin:2px;
+    
+}
+
+
+/* ----------------------------thet ke phan index-footer-------------------------- */
+.centerfooter,.row{
+    height: 100%;
+}
+
+
+.centerfooter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+}
+
+.footer2 .icon {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.footer2 .icon li{
+    margin: 5px 8px;
+}
+
+.footer2 .icon a{
+    text-decoration: none;
+    color: #3c4fe0;
+}
+
+.footer2 .icon a:hover{
+    opacity: .6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+li{
+    list-style: none;
+}
+b{
+    font-size: 50px;
+    color:gray;
+    
+}
+
+.row{
+    /* float: left; */
+    /* width: 100%; */
+    /* margin-bottom: 20px; */
+    /* margin-top:20px; */
+    /* color:  
+}
+
+.centerfooter{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.footer1{
+    float: left;
+    width: 15%;
+
+}
+
+.footer2{
+    float: left;
+    width: 25%;
+    color:gray;
+}
+
+.footer3{
+    float: left;
+    width: 60%;
+    color:gray;
+    
+}
+.underline{
+    text-decoration-line: underline;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------gio hang --------------------------------------- */
+
+/* ------------------------------------bo cuc cua gio hang---------------------------------- */
+/* phan tong the  */
+#show_product{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+}
+
+/* phan khung gio hang */
+#div_shopping_cart{
+    width: 70%;
+    height: 500px;
+    background-color: rgb(208, 230, 249);
+    margin-top: 25px;
+    animation:  boxShopCart_FadeIn ease 1s;
+}
+
+
+/* phan chua lable 'Gio Hang' */
+#header-shopping-cart{
+    width: 100%;
+    height: 70px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+#nav-shopping-cart{
+    width: 98.9%;
+    height: 40px;
+    background-color:rgb(255, 255, 255);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+/*phan chua cac san pham  */
+#show_product_in_shopping_cart{
+    width: 100%;
+    height: 320px;
+    overflow-y: scroll; 
+}
+
+#total-price-in-shopping-cart{
+    width: 100%;
+    height: 50px;
+    /* background-color: #3c4fe0; */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#total-price-in-shopping-cart span{
+    width: 200px;
+    position: absolute;
+    border-bottom: 1px solid black;
+    right: 30px;
+    /* white-space: pre; */
+    /* margin-left: ; */
+}
+
+
+/* phan dinh nghia thuoc tinh cho thanh bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(208, 230, 249);
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 5px;
+} 
+
+
+
+
+/* phan chua buttom thanh toan */
+#footer-shopping-cart{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+
+
+/* thiet ke phan header cho trang gio hang  =================*/
+
+#header-shopping-cart p{
+    color: aliceblue;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+#header-shopping-cart button{
+    position:absolute;
+    right: 20px;
+    font-size: 25px;
+    color: #fff;
+    background-color:blue;
+    border: 0;
+}
+
+
+#header-shopping-cart button:hover{
+    transform: scale(1.2,1.2);
+    cursor: pointer;
+}
+
+/* ====================================== */
+
+
+/* thiet ke phan nav cho trang gio hang  ====================*/
+
+#nav-shopping-cart span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#nav-shopping-cart  img{
+    width: 50%;
+    height: 50%;
+}
+
+/* ================================================= */
+
+
+
+/* thiet ke phan footer cho gio hang  ==================*/
+
+#footer-shopping-cart button{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 100px;
+    border: 0;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    font-weight: 900;
+}
+
+
+
+#footer-shopping-cart button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+#footer-shopping-cart button:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#footer-shopping-cart button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+/* ================================================ */
+
+
+
+
+/* bo cuc cart san pham trong gio hang  =========================*/
+
+.div_product{
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 2px 2px 2px 2px ;
+    display: block;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+
+#div_img{
+    /* width: 100px;
+    height: 100%; */
+    /* background-color:blue ; */
+    float: left;
+}
+
+
+#div_img img{
+    width: 100%;
+    height: 100%;
+}
+
+
+#div_name{
+    /* width: 250px;
+    height: 100%; */
+    /* background-color: blueviolet; */
+    float: left; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+#div_price{
+    /* width: 200px;
+    height: 100%; */
+    /* background-color: chartreuse; */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#div_count{
+    /* width: 100px;
+    height: 100%; */
+    /* background-color: coral; */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+
+#div_totalprice{
+    /* width: 200px;
+    height: 100%; */
+    /* background-color: blue; */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#div_delete{
+    /* width: 35px;
+    height: 100%; */
+    /* background-color: rgb(76, 213, 8); */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+#div_delete button{
+    background-color: #fff;
+    font-size: 20px;
+    border: 0;
+}
+
+#div_delete button:hover{
+    transform: scale(1.5,1.5);
+}
+
+
+/* -------------------------------thiet ke div_count-------------------------------- */
+#div_count >#add-product-in-shopping-cart{
+    width:  30%;
+    height: 30%;
+    /* background-color: coral; */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+}
+
+
+
+#div_count>#count-product-in-shopping-cart{
+    width: 40%;
+    height: 30%;
+    /* background-color: blueviolet; */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid black;
+    border-bottom:1px solid black ;
+}
+
+
+#div_count >#sub-product-in-shopping-cart{
+    width:  30%;
+    height: 30%;
+    /* background-color: coral; */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+}
+
+
+
+#div_count button{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid black;
+}
+
+
+#div_count button:hover{
+    transform:scale(1.2,1.2);
+}
+
+
+#div_count a{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.grip1{
+    width: 6.25%;
+    height: 100%;
+}
+
+.grip2{
+    width: 12.5%;
+    height: 100%;
+}
+
+.grip3{
+    width: 18.75%;
+    height: 100%;
+}
+.grip4{
+    width: 25%;
+    height: 100%;
+}
+
+.grip5{
+    width: 31.25%;
+    height: 100%;
+}
+
+.grip6{
+    width: 37.5%;
+    height: 100%;
+}
+
+
+.grip7{
+    width: 43.75%;
+    height: 100%;
+}
+
+
+
+
+
+/* ---------------------------------------gio hang(end)--------------------------------------- */
+
+
+/* ----------------------------------------chuyen trang-------------------------------------- */
+#count-of-page-product{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#show-page{
+    width: auto;
+    height: 30px;
+    /* background-color: #3c4fe0; */
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    margin-bottom: 50px;
+}
+
+.page{
+    width: 30px;
+    height: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+
+
+
+
+
+/* --------------------------------thong bao khi xoa san pham------------------------- */
+
+#notification-body{
+    width: 100%;
+    height:100vh;
+    display:none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+}
+
+
+#notification{
+    width: 300px;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 10px 10px 10px 10px;
+    /* display:flex; */
+    /* justify-content: center;
+    align-items: center; */
+
+}
+
+
+#notification img{
+    width: 25px;
+    height: 25px;
+    display: inline;
+    margin: 10px ;
+    float: left;
+}
+
+
+#notification h4{
+    width: 70%;
+    margin: 14px;
+    font-size: 20px;
+}
+
+#notification span{
+    margin-left: 40px;
+    margin-right: 30px;
+    display:flex;
+    justify-content: center;
+}
+
+
+#button-confirm-delete button{
+    margin-top: 20px;
+    padding: 7px;
+    margin-left: 150px;
+    float: left;
+    background-color: #fff;
+    border: 1px solid rgb(0, 106, 255);
+    border-radius: 5px;
+    color: rgb(0, 106, 255);
+}
+
+#button-confirm-cancel button{
+    margin-top: 20px;
+    padding: 8px;
+    margin-left: 10px;
+    background-color: rgb(29, 100, 255);
+    border-radius: 5px;
+    border: 0;color: #fff;
+    width: 50px;
+}
+
+
+
+
+
+
+/* ------------------------------------goi y san pham khi search------------------------------- */
+
+
+.Suggestions{
+    width: 40%;
+    height: auto;
+
+    background-color: #ffffff;
+    /* position: absolute; */
+    color: black;
+    border: 1px solid black;
+    /* opacity:0; */
+    /* overflow-y: scroll; */
+}
+
+
+.Suggestions li{
+    list-style: none;
+    padding: 8px 12px;
+    width: 100%;
+    cursor: none;
+    border-radius: 3px;
+    /* display: none; */
+
+}
+
+
+.Suggestions li:hover{
+    background-color: rgb(216, 215, 219);
+}
+
+@keyframes boxShopCart_FadeIn {
+    from {
+        opacity: 0;
+        margin-top: -65%;
+    }
+    to{
+        opacity: 1;
+        margin-top: 25px
+    }
+}
